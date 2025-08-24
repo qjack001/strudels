@@ -1,0 +1,43 @@
+// "tv rules the nation" @by qjack
+// @details WIP
+
+samples('shabda/speech/en-US/m:tell,lee,viz')
+samples('shabda/speech/en-US/m:rules,the,nay,shun')
+setcpm(113 / 4)
+
+vox: sound("<[tell@2 lee viz ~ shun@3] ~ [rules@2 the nay ~ shun@3] ~>")
+	.note("<[29@2 32 34 ~ 32@3] ~ [34@2 33 32 ~ 32@3] ~>")
+	.early("0.03 <0.09 0.03>")
+	.decay(1)
+	.crush(4)
+	.lpf(1500)
+	.postgain(0.8)
+
+drums: s("bd:7 hh:2")
+	.bank("sp12")
+	.fast(4)
+	.speed(0.8)
+	.crush(8)
+	.lpf(4000)
+	.room(0.5)
+	.superimpose(x => sound("casio!16")
+		.crush(8)
+		.hpf(2000)
+		.penv(-1)
+		.patt(0.01)
+		.swingBy(0.2, 8)
+		.postgain("[0.3 0.02]!8"))
+
+snare: s("~ [sd, sp12_cp]")
+	.fast(2)
+	.clip(0.8)
+	.distort(2)
+	.room(0.1)
+	.postgain(0.2)
+
+bass: note("<[Eb@2 F Bb ~ Ab@3] ~ [Db3@2 C C ~ Bb2@3] ~>")
+	.add(note("-12,-24"))
+	.sound("sawtooth,supersaw")
+	.distort(1)
+	.superimpose((x) => x.detune(0.5))
+	.postgain(0.3)
