@@ -42,8 +42,8 @@ const tracks = {
 		.lpf(1000)
 		.jux((x) => x.vib(0.4))
 		.swingBy(1 / 8, 8)
-		.color("orange"),
-		.sound('piano')
+		.color("orange")
+		.sound('piano'),
 
 	clarinet: n("[0@2 2 4] [2 5 7] [4 3 2], 0@2 ~!3")
 		.fast(2)
