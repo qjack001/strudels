@@ -42,15 +42,15 @@ const tracks = {
 		.lpf(1000)
 		.jux((x) => x.vib(0.4))
 		.swingBy(1 / 8, 8)
-		.sound("piano")
 		.color("orange"),
+		.sound('piano')
 
 	clarinet: n("[0@2 2 4] [2 5 7] [4 3 2], 0@2 ~!3")
 		.fast(2)
 		.chord("<Gm D>").voicing()
 		.clip("<2 0.8!3>/2")
 		.swingBy(1 / 8, 8)
-		.sound("gm_clarinet")
+		.sound('gm_clarinet')
 		.lpf(600)
 		.gain(0.5)
 		.color("green"),
@@ -69,12 +69,12 @@ const arrangement = [
 arrange(...arrangement)
 	.inhabit(tracks)
 	.cpm(90 / 4)
-	.pianoroll({
-		stroke: true,
-		fill: false,
-		fillActive: true,
-		cycles: 8,
-		fold: 0,
-		playhead: 0.7,
-		playheadColor: 'transparent'
-	})
+	// .pianoroll({
+	// 	stroke: true,
+	// 	fill: false,
+	// 	fillActive: true,
+	// 	cycles: 8,
+	// 	fold: 0,
+	// 	playhead: 0.7,
+	// 	playheadColor: 'transparent'
+	// })

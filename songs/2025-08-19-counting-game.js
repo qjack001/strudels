@@ -1,9 +1,7 @@
 // "counting game" @by qjack
 // @details 2025-08-19
 
-await initHydra()
-const visuals = true
-
+const visuals = false
 const bassline = "0 7 [~ 8] 4"
 const tracks = {
 	bass: n(bassline)
@@ -64,7 +62,7 @@ const song = arrange(...arrangement)
 	.cpm(100 / 4)
 
 if (visuals) {
-	
+	await initHydra()
 	solid(0.1, 0, 1, 1)
 		.layer(osc(9, 0.1, 1)
 			.blend(osc(13, 0.5, 5))

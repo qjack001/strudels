@@ -58,6 +58,6 @@ arrange(...arrangement)
 		fillActive: true,
 		fill: false,
 		stroke: true,
-		background: '#0e0a0a',
+		// background: '#0e0a0a',
 		playheadColor: 'transparent',
 	})
