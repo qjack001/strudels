@@ -1,4 +1,5 @@
 ---
+const url = Astro.url.pathname
 const songs = Object.keys(import.meta.glob('/songs/*.js'))
 	.map((id) => id.replace('/songs/','').replace('.js', ''))
 ---
@@ -79,7 +80,7 @@ const songs = Object.keys(import.meta.glob('/songs/*.js'))
 				text-transform: uppercase;
 				padding: 0 3px;
 
-				background: transparent;
+				background: repeating-conic-gradient(#111 0% 25%, transparent 0% 100%) 1px 0.5px / 2px 2px;
 				color: #111;
 				text-decoration: none;
 				border: none;
@@ -88,18 +89,18 @@ const songs = Object.keys(import.meta.glob('/songs/*.js'))
 			}
 
 			button:active,
-			button:focus
+			a:active
 			{
-				background: #111 !important;
+				background: #111;
 				color: #aaa;
 			}
 
-			a:hover,
-			a:focus,
-			a.current,
-			button
+			button[aria-disabled=true],
+			a[aria-disabled=true], button:focus
 			{
-				background: repeating-conic-gradient(#111 0% 25%, transparent 0% 100%) 1px 0.5px / 2px 2px;
+				cursor: default;
+				background: repeating-conic-gradient(transparent 0% 25%, #111 0% 100%) 1px 0.5px / 2px 2px;
+				color: #aaa;
 			}
 
 			::selection
@@ -114,7 +115,7 @@ const songs = Object.keys(import.meta.glob('/songs/*.js'))
 			<ol>
 				{songs.map((id) => (
 					<li>
-						<a href={id} class={Astro.url.pathname.includes(id) ? 'current' : undefined}>
+						<a href={id} aria-disabled={url.includes(id)}>
 							{id.split('-').slice(3).join(' ').toUpperCase()}
 						</a>
 					</li>

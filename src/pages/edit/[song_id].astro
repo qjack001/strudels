@@ -1,0 +1,42 @@
+---
+import fs from 'fs/promises'
+import Base from '../../../base.astro'
+
+export async function getStaticPaths() {
+	const songFiles = import.meta.glob('/songs/*.js')
+	return Object.keys(songFiles).map((filename) => ({params: {
+		song_id: filename.replace('/songs/','').replace('.js', '')
+	}}))
+}
+
+const {song_id} = Astro.params
+const file = await fs.readFile(`./songs/${song_id}.js`)
+---
+<head>
+	<script src="https://unpkg.com/@strudel/embed@latest"/>
+</head>
+<Base>
+	<main>
+		<strudel-repl set:html={`<!--${file}-->`}/>
+	</main>
+	<style>
+		main
+		{
+			position: absolute;
+			background-color: pink;
+			inset-block: 0;
+			inset-inline-end: 0;
+			width: calc(100vw - 40ch);
+			height: calc(100vh);
+		}
+
+		:global(iframe)
+		{
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+	</style>
+</Base>

@@ -7,7 +7,7 @@
 		"build": "astro build"
 	},
 	"dependencies": {
-		"@strudel/web": "^1.2.3",
+		"@strudel/web": "1.2.3",
 		"astro": "^5.13.2"
 	}
 }

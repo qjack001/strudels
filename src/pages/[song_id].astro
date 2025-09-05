@@ -14,8 +14,9 @@ const file = await fs.readFile(`./songs/${song_id}.js`)
 ---
 <Base>
 	<main>
-		<button id="play">play</button>
-		<button id="stop">stop</button>
+		<button id="play">Play</button>
+		<button id="stop">Stop</button>
+		<a href={`/edit/${song_id}`}>Edit</a>
 		<pre id="song">{file.toString()}</pre>
 	</main>
 	<script>
