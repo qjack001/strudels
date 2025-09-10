@@ -1,0 +1,60 @@
+// "the brood" @by qjack
+// @details 2025-09-09 WIP
+
+setcpm(90 / 4)
+
+kick: sound('bd')
+	.struct("x x x x")
+	.lpf(500)
+	.distort(1)
+
+snare: sound('sd')
+	.struct("~ x")
+	.echo("<2 15>", 1 / 30, 0.8)
+	.lpf(2000)
+
+rim: sound('rim')
+	.struct("x ~ ~ [<~ x> x]")
+	.lpf(3000)
+	.distort(1)
+
+perc: n(run(32)).slow(2)
+	.pan(sine)
+	.lpf(3000)
+	.sound('east')
+
+arp: n("[7 .. 14] [14 .. <7 0>]")
+	.scale("<G D>/2:spanish")
+	.sub(note("12,0"))
+	.jux((x) => x.vib(0.4))
+	.gain(0.6)
+	.hpf(perlin.slow(2).range(100, 2000))
+	.pan(0.3)
+	.sound("supersaw,gm_sitar")
+
+bass: n("<0!3 2>@2 ~ 7")
+	.scale("<G1 D1>/2:spanish")
+	.s("supersaw")
+	.distort(0.7)
+	.superimpose((x) => x.detune(0.5))
+	.lpenv(perlin.slow(3).range(1, 4))
+	.lpf(perlin.slow(2).range(100, 2000))
+	.gain(1)
+
+brood: seq(2, [3, 4, 5, 6, 7, 8]).mul(100)
+	.div(cat(2, 3, 3.75, 8 / 3).slow(8))
+	.freq()
+	.velocity(cat(0.7, 0.5, 0.2, 0.1))
+	.fast(4)
+	.attack(0.05).decay(0.02).sustain(0.5)
+	.legato(4)
+	.cutoff(sine.range(500, 2000).slow(16))
+	.resonance(10)
+	.sound('tri')
+
+whisper: note("<G4 D4>/2")
+	.speed(-0.5)
+	.decay(5)
+	.room(4)
+	.pan(0.8)
+	.sound('wind')
