@@ -115,7 +115,7 @@ const songs = Object.keys(import.meta.glob('/songs/*.js'))
 			<ol>
 				{songs.map((id) => (
 					<li>
-						<a href={id} aria-disabled={url.includes(id)}>
+						<a href={`/strudels/edit/${id}`} aria-disabled={url.includes(id)}>
 							{id.split('-').slice(3).join(' ').toUpperCase()}
 						</a>
 					</li>
