@@ -2,7 +2,7 @@
 // @url https://youtu.be/SthcxWPXG_E
 // @details Strudel by qJack, 2025-08-26
 
-const visuals = true // if you want to watch 👁️👄👁️
+const visuals = true // if you want to watch
 setcpm(30 / 4)
 polyrhythm: stack(
 		note(`[E8@3  ~@5]!448`).color('#9ddd63'),
