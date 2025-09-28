@@ -37,11 +37,11 @@ const tracks = {
 
 const arrangement = [
 	[4, "organ, <~!3 [kick, snare]>"],
-	[3, "hats, kick, snare, organ"],
-	[1, "[{hats, kick, snare, organ}%0.7142857143]@5 ~ ~"],
+	[4 - 1/4, "hats, kick, snare, organ"],
+	[1/4, "~"],
 	[8, "hats, kick, snare, organ, guitar"],
 ]
 
 arrange(...arrangement)
-	.inhabit(tracks)
+	.pick(tracks)
 	.cpm(100 / 4)

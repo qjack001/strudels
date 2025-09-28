@@ -14,17 +14,18 @@ const tracks = {
 			E2: "<[3@2 - - - - - -][- - - 7 - 7 6 5][3@2 - - - - - -][- - - - - - - -][- - - - - - - -][3@2 - - - - - -][- - - -][- - - - - - 7 5]>",
 		})
 		.sub(note(12))
+		.gain(1.2)
 		.layer((x) => stack(
-			x.sound('gm_electric_guitar_muted').gain(1.2).decay(0.8),
+			x.sound('gm_electric_guitar_muted').decay(0.8),
 			x.sound('sine').decay(0.5),
 		)),
 
 	guitar: tab({
-		// traids on the top three strings
-		E4: "<3 4 5 3>",
-		B3: "<3 5 5 5>",
-		G3: "<4 4 5 3>",
-	})
+			// traids on the top three strings
+			E4: "<3 4 5 3>",
+			B3: "<3 5 5 5>",
+			G3: "<4 4 5 3>",
+		})
 		.struct(`<
 			[[x ~] x x [~ x]]
 			[x ~]
@@ -53,7 +54,6 @@ const tracks = {
 	drums: sound("bd ~ bd, ~ sd, [~ hh]*4")
 		.bank('linn')
 		.vib(1)
-		.phaser(2)
 		.speed(perlin.range(1, 2))
 		.decay(sine.slow(8).range(0.1, 0.5))
 		.lpf(2000),
@@ -62,7 +62,6 @@ const tracks = {
 		.slow(4)
 		.late(0.2)
 		.scale('G:whole tone')
-		.scaleTranspose("<0 -3 -4 -3>")
 		.clip(sine.slow(8).range(2, 4))
 		.sound("gm_music_box")
 		.hpf(1000)
@@ -73,8 +72,10 @@ const tracks = {
 }
 
 song: arrange(
-		[8, "harp"],
-		[4, "piano"],
+		[2, "harp"],
+		[2, "harp, drums"],
+		[2, "guitar, drums"],
+		[2, "guitar, bass, drums"],
 		[16, "piano, guitar, bass, drums"],
 		[8, "piano, bass"],
 		[8, "guitar, bass, drums"],
