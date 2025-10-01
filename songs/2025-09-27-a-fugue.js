@@ -1,4 +1,4 @@
-// "fugue" @by qjack
+// "a fugue" @by qjack
 // @details 2025-09-27
 
 setcpm(120 / 4)

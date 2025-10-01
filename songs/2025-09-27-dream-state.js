@@ -72,12 +72,11 @@ const tracks = {
 }
 
 song: arrange(
-		[2, "harp"],
-		[2, "harp, drums"],
-		[2, "guitar, drums"],
-		[2, "guitar, bass, drums"],
-		[16, "piano, guitar, bass, drums"],
-		[8, "piano, bass"],
+		[4, "guitar, drums"],
+		[12, "guitar, bass, drums"],
+		[16, "piano, bass, drums"],
+		[4, "piano"],
+		[4, "piano, bass"],
 		[8, "guitar, bass, drums"],
 		[16, "piano, guitar, bass, drums"],
 	)
