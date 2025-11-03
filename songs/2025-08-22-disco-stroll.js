@@ -5,22 +5,23 @@ const tracks = {
 	drum: sound(`
 			<[bd bd] bd>
 			[~ bd]
-			[buzz, sd]
-			[<~ bd> <~ roll bd [buzz sd]>]
+			[sd]
+			[<~ bd> <~ [rim!6] bd [[rim!3] sd]>]
 		`)
-		.bank("super-dead-drums")
+		// .bank("super-dead-drums")
 		.swingBy(3 / 16, 4)
 		.gain(1.5)
+		.lpf(3000)
 		.almostNever(x => x.gain("0")),
 
 	hats: n(run(4)).palindrome().fast(2)
 		.sound("hh")
-		.bank("super-dead-drums")
+		// .bank("super-dead-drums")
 		.swingBy(3 / 16, 4)
 		.gain("[0.2 0.6]!4"),
 
 	perc: sound("~!3 [rim ~ rim]")
-		.bank("super-dead-drums")
+		// .bank("super-dead-drums")
 		.lpf(tri.range(500, 3000).slow(2))
 		.gain(0.5)
 		.pan(0.9),
