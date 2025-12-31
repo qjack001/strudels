@@ -1,4 +1,4 @@
-// "space song" @by qjack
+// "star song" @by qjack
 // @details 2025-12-28
 
 const automation = {
@@ -6,6 +6,8 @@ const automation = {
 	swirl: tri.range(600, 1000).slow(4),
 	decay: saw.range(600, 0).slow(8),
 	rise: saw.range(0, 1000).slow(8),
+	a_bit: 0.2,
+	open_up: saw.range(0.2, 1).slow(8),
 }
 
 const auto = (pattern) => pattern.inhabit(automation)
@@ -66,7 +68,10 @@ const melody = note(`<
 	.vib(0.03)
 	.decay(2)
 	.sound('sine')
-	.room(0.5)
+	.room(auto("<a_bit!16 open_up!8>"))
+	// // too glitchy for some reason
+	// .roomsize(3)
+	// .roomdim(800)
 
 song: arrange(
 		[8,  "drums, reverb"],
